@@ -129,11 +129,10 @@ function nthRecur(list, index) {
 		return nth(list.rest, index-1);
 }
 
-
-function deepComparison(v1,v2) {
+function deepEqual(v1,v2) {
 	var tv1 = typeof v1;
 	var tv2 = typeof v2;
-	var x,flag=true;
+	var x;
 	if (v1 === v2)
 		return true;
 	else {
@@ -148,15 +147,17 @@ function deepComparison(v1,v2) {
 				for(x in v1) {
 					if(!(x in v2))
 						return false;
-					else{
-						flag = deepComparison(v1[x],v2[x]);
+					else {
+						if(!deepEqual(v1[x],v2[x]))
+							return false;
 					}
 				}
-				return flag;
+				return true;
 			}
 		}
 		else /*types of both are different which means that they are different*/
 			return false;
 	}
 }
+
 
