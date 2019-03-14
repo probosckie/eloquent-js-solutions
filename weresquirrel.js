@@ -117,15 +117,16 @@ function tableFor(event,journal){
   let table = [0,0,0,0], i;
   for (i=0; i<journal.length; i++){
     if(journal[i].events.includes(event)){
-       if(journal.squirrel)
+       if(journal[i].squirrel)
          table[3]++;
        else 
          table[1]++;
     } else {
-      if(journal.squirrel)
+      if(journal[i].squirrel)
          table[2]++;
        else 
          table[0]++;
     }
   }
+  return table;
 }
