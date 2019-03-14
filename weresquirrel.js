@@ -105,3 +105,27 @@ var JOURNAL = [
   {"events":["bread","brushed teeth","television","weekend"],"squirrel":false},
   {"events":["cauliflower","peanuts","brushed teeth","weekend"],"squirrel":false}
 ];
+
+
+/*
+To extract a two-by-two table for a specific event from the journal, we must
+loop over all the entries and tally how many times the event occurs in relation
+to squirrel transformations.
+*/
+
+function tableFor(event,journal){
+  let table = [0,0,0,0], i;
+  for (i=0; i<journal.length; i++){
+    if(journal[i].events.includes(event)){
+       if(journal.squirrel)
+         table[3]++;
+       else 
+         table[1]++;
+    } else {
+      if(journal.squirrel)
+         table[2]++;
+       else 
+         table[0]++;
+    }
+  }
+}
