@@ -34,3 +34,40 @@ for (let i = 1; i <= total; i++){
      target = target + rowsCount;
   }
 }
+
+/*
+Chessboard
+Write a program that creates a string that represents an n×n grid like
+# # # #
+ # # # #
+# # # #
+ # # # #
+# # # #
+ # # # #
+# # # #
+ # # # #
+*/
+
+
+
+function createChessPattern(character, gridValue){
+	character = character || '#';
+	gridValue = gridValue || 8;
+
+	let final = '', currentLine = 0;
+
+	for (let i = 1; i <= gridValue*gridValue; i++){
+		if((currentLine + i) % 2 === 0){
+			final = final + ' ';
+		} else {
+			final = final + character;
+		}
+
+		if(i % gridValue === 0){
+			final = final + '\n';
+			currentLine += 1;
+		}
+	}
+	return final
+}
+
