@@ -19,7 +19,7 @@ function findInnerPattern(n,str, target){
 
 function findPattern(n){
   //do something
-  const result = findInnerPattern(1,'', n);
+  const result = findInnerPattern(1,'1', n);
   return result || 'Pattern could not be found';
   
 }
