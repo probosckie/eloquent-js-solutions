@@ -1139,7 +1139,7 @@ function isPresentInRange(arr, code) {
 }
 
 function characterScript(code){
-  return SCRIPTS.filter((v) => isPresentInRange(v.ranges,code)); 
+  return SCRIPTS.filter((v) => isPresentInRange(v.ranges,code))[0];
 }
 
 
@@ -1165,4 +1165,18 @@ function countBy(item, groupName){
   }
   //console.log(hash)
   return collect;
+}
+
+
+/*
+Using countBy, we can write the function that tells us which scripts are used
+in a piece of text.
+*/
+
+function textScripts(text){
+  let scriptArr = [];
+  for (let i of text){
+    scriptArr.push(characterScript(i));
+  }
+  return countBy(scriptArr, v => v.name);
 }
