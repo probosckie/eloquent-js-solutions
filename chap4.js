@@ -169,7 +169,7 @@ function deepEqual(v1,v2){
           else 
             isSame = isSame & deepEqual(v1[i],v2[i]);
         }
-        return isSame;
+        return !!isSame;
       }
     }
   }
