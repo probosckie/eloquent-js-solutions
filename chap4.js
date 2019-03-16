@@ -56,6 +56,32 @@ function sum(f){
 }
 
 
+/*
+write two functions, reverseArray
+and reverseArrayInPlace. The first, reverseArray, takes an array as argument
+and produces a new array that has the same elements in the inverse order. The
+second, reverseArrayInPlace, does what the reverse method does: it modifies
+the array given as argument by reversing its elements.
+*/
+
+function reverseArray(a){
+  let b = [];
+  for(let i = 0; i< a.length; i++){
+    b[i] = a[a.length - i - 1];
+  }
+  return b;
+}
+
+function reverseArrayInPlace(a){
+  let temp;
+  for(let i = 0; i < Math.floor(a.length/2); i++){
+     console.log(`replace ${i} with ${a.length - i - 1}`);
+     temp = a[i];
+     a[i] = a[a.length - i - 1];
+     a[a.length - i - 1] = temp;
+  }
+}
+
 
 
 
