@@ -93,6 +93,26 @@ the element at the given position in the list (with zero referring to the first
 element) or undefined when there is no such element.
 If you haven’t already, also write a recursive version of nth.*/
 
+function arrayToList(a){
+  let list = {}, newNode;
+  for(let i = a.length - 1; i >= 0; i--){
+    if(!newNode){
+      newNode = {
+        value : a[i],
+        rest: null
+      };  
+    } else {
+      list = {
+         value: a[i],
+         rest: newNode
+      };
+      newNode = list;
+    }
+  }
+  return list;
+}
+
+
 
 
 
