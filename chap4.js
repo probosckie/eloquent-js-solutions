@@ -113,6 +113,15 @@ function arrayToList(a){
 }
 
 
+function listToArray(list){
+  const arr = [];
+  while(list){
+    arr.push(list.value);
+    list = list.rest;
+  }
+  return arr;
+}
+
 
 
 
