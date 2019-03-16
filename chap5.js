@@ -30,3 +30,23 @@ function reduce(array, combine, start){
   
   return current;
 }
+
+/*
+Use the reduce method in combination with the concat method to “flatten”
+an array of arrays into a single array that has all the elements of the original
+arrays.
+*/
+
+function flatten(arr){
+  return arr.reduce((v,i) => {
+    if(Array.isArray(i)){
+       return v.concat(flatten(i))
+    } else {
+      return v.concat(i);
+    }
+  }, [])
+}
+
+
+
+
