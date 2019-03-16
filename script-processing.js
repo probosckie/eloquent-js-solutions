@@ -1182,3 +1182,22 @@ function textScripts(text){
   }
   return countBy(scriptArr, v => v.name);
 }
+
+/*
+Write a function that computes the dominant writing direction in a string of
+text. Remember that each script object has a direction property that can be
+"ltr" (left to right), "rtl" (right to left), or "ttb" (top to bottom).
+*/
+
+
+function dominantWritingDirection(){
+   let scriptArr = [];
+  for (let i of text){
+    let result = characterScript(i.codePointAt());
+    if(result)
+    	scriptArr.push(result);
+  }
+  return countBy(scriptArr, v => v.direction);
+}
+
+
