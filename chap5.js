@@ -19,3 +19,14 @@ function noisy(f){
    console.log('result is ' + result);
  }
 }
+
+/*Writing polyfill of reduce*/
+
+function reduce(array, combine, start){
+  let current = start;
+  for(let i of array){
+    current = combine(current,i);
+  }
+  
+  return current;
+}
