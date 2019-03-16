@@ -1123,3 +1123,46 @@ console.log(SCRIPTS.reduce((a,b) => {
   return (characterCount(a) > characterCount(b) ? a : b);
 }))
 
+
+
+/*
+One use of the data set would be figuring out what script a piece of text is
+using. Let’s go through a program that does this.
+*/
+
+function isPresentInRange(arr, code) {
+  for(let i of arr){
+    if(code >= arr[0] && code < arr[1])
+      return true;
+  }
+  return false;
+}
+
+function characterScript(code){
+  return SCRIPTS.filter((v) => isPresentInRange(v.ranges,code)); 
+}
+
+
+/*
+Write a function to give counts like this
+console.log(countBy([1, 2, 3, 4, 5], n => n > 2));
+// → [{name: false, count: 2}, {name: true, count: 3}]
+*/
+
+function countBy(item, groupName){
+  let collect = [], hash = {};
+  for (let i of item){
+    let name = groupName(i);
+    if(!(name in hash)){
+      hash[name] = collect.length;
+      collect.push({
+        groupName: name,
+        count:1
+      });
+    } else {  
+      collect[hash[name]].count++;
+    }
+  }
+  //console.log(hash)
+  return collect;
+}
