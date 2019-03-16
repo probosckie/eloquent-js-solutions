@@ -66,3 +66,14 @@ function loop(v,test,update,body){
 }
 
 
+/*
+Implement every as a function that takes an array and a predicate function
+as parameters. Write two versions, one using a loop and one using the some
+method.
+*/
+
+function every(arr, test){
+  return arr.reduce((v,i) => v && test(i))
+}
+
+
