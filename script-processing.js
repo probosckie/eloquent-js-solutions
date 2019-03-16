@@ -1115,7 +1115,11 @@ var SCRIPTS = [
 
 function characterCount(script){
   return script.ranges.reduce((last,i) => {
-    return last + (i[1] - i[0] + 1);
+    return last + (i[1] - i[0]);
   }, 0);
 }
+
+console.log(SCRIPTS.reduce((a,b) => {
+  return (characterCount(a) > characterCount(b) ? a : b);
+}))
 
