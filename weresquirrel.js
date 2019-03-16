@@ -130,3 +130,16 @@ function tableFor(event,journal){
   }
   return table;
 }
+
+function journalEvents(journal){
+  const allEvents = {};
+  for(let i of journal){
+    for(let j of i.events){
+      if(!(j in allEvents)){
+        allEvents[j] = true;
+      }
+    }
+  }
+  return allEvents;
+}
+
