@@ -131,6 +131,8 @@ function tableFor(event,journal){
   return table;
 }
 
+
+/*Function to find all the distinct events in journal*/
 function journalEvents(journal){
   const allEvents = {}, allEv = [];
   for(let i of journal){
@@ -143,4 +145,6 @@ function journalEvents(journal){
   }
   return allEvents;
 }
+
+journalEvents(JOURNAL);
 
