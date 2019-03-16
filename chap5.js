@@ -7,3 +7,15 @@ function doSomething(action, n){
     action(i);
   }
 }
+
+function greaterThan(n){
+  return (m) => m > n;
+}
+
+function noisy(f){
+ return function(...args){
+   console.log('called with '+ args);
+   let result = f(args);
+   console.log('result is ' + result);
+ }
+}
