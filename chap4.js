@@ -51,6 +51,10 @@ function range(start, end, step){
   return store;
 }
 
+function sum(f){
+  return f.reduce(function(a,b){return a+b});
+}
+
 
 
 
