@@ -123,5 +123,20 @@ function listToArray(list){
 }
 
 
+function prepend(list, n){
+  return {value:n, rest:list};
+}
+
+function nth(list, index){
+  if(!list)
+    return undefined;
+  if(index === 0 ){
+    if(list && list.value)
+      return list.value;
+  } else
+    return nth(list.rest,index-1);
+}
+
+
 
 
