@@ -1132,7 +1132,7 @@ using. Let’s go through a program that does this.
 
 function isPresentInRange(arr, code) {
   for(let i of arr){
-    if(code >= arr[0] && code < arr[1])
+    if(code >= i[0] && code < i[1])
       return true;
   }
   return false;
@@ -1175,8 +1175,8 @@ in a piece of text.
 
 function textScripts(text){
   let scriptArr = [];
-  for (let i of text){
-    scriptArr.push(characterScript(i));
+  for (let i of text) {
+    scriptArr.push(characterScript(i.codePointAt()));
   }
   return countBy(scriptArr, v => v.name);
 }
