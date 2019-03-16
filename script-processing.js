@@ -1175,8 +1175,10 @@ in a piece of text.
 
 function textScripts(text){
   let scriptArr = [];
-  for (let i of text) {
-    scriptArr.push(characterScript(i.codePointAt()));
+  for (let i of text){
+    let result = characterScript(i.codePointAt());
+    if(result)
+    	scriptArr.push(result);
   }
   return countBy(scriptArr, v => v.name);
 }
