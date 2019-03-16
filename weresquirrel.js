@@ -132,11 +132,12 @@ function tableFor(event,journal){
 }
 
 function journalEvents(journal){
-  const allEvents = {};
+  const allEvents = {}, allEv = [];
   for(let i of journal){
     for(let j of i.events){
       if(!(j in allEvents)){
         allEvents[j] = true;
+        allEv.push(j);
       }
     }
   }
