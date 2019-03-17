@@ -15,7 +15,7 @@ function greaterThan(n){
 function noisy(f){
  return function(...args){
    console.log('called with '+ args);
-   let result = f(args);
+   let result = f(...args);
    console.log('result is ' + result);
  }
 }
