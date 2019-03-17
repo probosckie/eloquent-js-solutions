@@ -260,7 +260,7 @@ class GroupIterator {
       return {done: true};
     else {
       let value = {
-        value: this.group.bucket[this.currentIndex];
+        value: this.group.bucket[this.currentIndex]
       };
       this.currentIndex++;
       return {
