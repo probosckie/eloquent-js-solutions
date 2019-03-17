@@ -256,7 +256,7 @@ class GroupIterator {
     this.group = group;
   }
   next(){
-    if(this.currentIndex === this.group.length)
+    if(this.currentIndex === this.group.bucket.length)
       return {done: true};
     else {
       let value = {
