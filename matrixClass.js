@@ -35,7 +35,7 @@ class MatrixIterator {
   }
   
   next(){
-    if(this.y == this.matrix.height && this.x == this.matrix.width)
+    if(this.y == this.matrix.height)
       return {done:true};
     let value = {
       x: this.x,
