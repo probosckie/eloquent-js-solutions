@@ -95,4 +95,26 @@ class Dog {
 
 const pluto = new Dog('White');
 
+/*
+using plain objects as maps is dangerous. There are several possible
+ways to avoid this problem. First, it is possible to create objects with no
+prototype. If you pass null to Object.create, the resulting object will not
+derive from Object.prototype and can safely be used as a map.
+*/
+
+console.log("toString" in Object.create(null));
+
+
+/*
+symbols used as property names
+*/
+
+const toStringSymbol = Symbol('toString');
+Array.prototype[toStringSymbol] = function(){
+  console.log(`${this.length} cm of blue yarn`);
+}
+
+console.log([1,2,3].toString());
+console.log([1,2,3][toStringSymbol]());
+
 
