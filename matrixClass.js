@@ -59,4 +59,9 @@ Matrix.prototype[Symbol.iterator] = function(){
 
 let matrix = new Matrix(2,2, (x,y) => `Value ${x} ${y}`);
 
+for (let {x,y,value} of matrix){
+  console.log(x,y,value);
+}
+
+
 
