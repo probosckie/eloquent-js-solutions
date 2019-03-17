@@ -106,7 +106,7 @@ console.log("toString" in Object.create(null));
 
 
 /*
-symbols used as property names
+symbols used as unique property names
 */
 
 const toStringSymbol = Symbol('toString');
@@ -116,5 +116,40 @@ Array.prototype[toStringSymbol] = function(){
 
 console.log([1,2,3].toString());
 console.log([1,2,3][toStringSymbol]());
+
+
+/*
+properties that are accessed directly may hide a method call. Such methods are called getters, and they are defined by writing 
+get in front of the method name in an object expression or class declaration
+*/
+
+const x = {
+  x:1, 
+  get getX(){return this.x}
+}
+
+/*
+setters, getters and static method in a single example
+*/
+
+class Temperature{
+  constructor(celsius){
+    this.celsius = celsius;
+  }
+  
+  get farenheit(){
+     return this.celsius * 1.8 + 32;
+  }
+  
+  set fahrenheit(value) {
+    this.celsius = (value - 32) / 1.8;
+  }
+  
+  static fromFarenheit(f){
+    return new Temperature((f - 32) / 1.8);
+  }
+}
+
+
 
 
