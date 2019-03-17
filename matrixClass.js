@@ -13,6 +13,15 @@ class Matrix {
       for(let j = 0; j < width; j++){
         this.content[i * width  + j] = element(i,j); 
       }
-    } 
+    }
+    
+  }
+  
+  get(x,y){
+    return this.content[y * this.width + x];
+  }
+  
+  set(x,y,value){
+    this.content[this.width*y + x] = value;
   }
 }
