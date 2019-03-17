@@ -119,6 +119,18 @@ console.log([1,2,3][toStringSymbol]());
 
 
 /*
+Map in built object type
+*/
+
+let ages = new Map();
+ages.set("Boris", 39);
+ages.set("Liang", 22);
+ages.set("Júlia", 62);
+console.log(`Júlia is ${ages.get("Júlia")}`);
+// → Júlia is 62
+console.log("Is Jack's age known?", ages.has("Jack"));
+
+/*
 properties that are accessed directly may hide a method call. Such methods are called getters, and they are defined by writing 
 get in front of the method name in an object expression or class declaration
 */
