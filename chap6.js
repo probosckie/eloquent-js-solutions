@@ -55,3 +55,44 @@ const a = {
 
 a.tellMe('Something in the way she moves');
 
+/*
+The prototype object used when constructing objects is found by taking the
+prototype property of the constructor function. Inside the constructor, this refers to the prototype object
+*/
+
+function Rabbit(type){
+  this.type = type;
+}
+
+Rabbit.prototype.speak = function(line){
+  console.log(`The rabbit of type: ${this.type} says ${line}`);
+}
+
+const wierdRabbit = new Rabbit('Wierd');
+
+
+/*
+Distinction between the way a prototype is associated with a constructor (through its prototype property) and the way
+objects have a prototype (which can be found with Object.getPrototypeOf)
+*/
+
+console.log(Object.getPrototypeOf(Rabbit) === Function.prototype);
+
+console.log(Object.getPrototypeOf(wierdRabbit) === Rabbit.prototype)
+
+
+/* 
+Class notation to create objects
+*/
+class Dog {
+ constructor(type){
+   this.type = type;
+ }
+ bark(){
+   console.log('dog says woof woof');
+ }
+}
+
+const pluto = new Dog('White');
+
+
