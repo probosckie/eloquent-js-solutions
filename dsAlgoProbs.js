@@ -26,6 +26,30 @@ for (let i = 0; i < prices.length - 1; i++){
 console.log(`Gonna buy on ${buyIndex} and sell on ${sellIndex}`);
 console.log(`Gonna buy at ${prices[buyIndex]} and sell at ${prices[sellIndex]}`);
 
+
+/*
+gotta do this in O(n)
+*/
+
+let minPrice = prices[0], maxDiff = prices[1] - prices[0], minIndex = 0, maxIndex = 1;
+
+for(let i = 1; i < prices.length - 1; i++){
+  if(prices[i] < minPrice){
+  	minPrice = prices[i];
+  	minIndex = i;
+  }
+
+  if(prices[i+1] - minPrice > maxDiff){
+  	maxDiff = prices[i+1] - minPrice;
+  	maxIndex = i+1;
+  }
+}
+
+console.log(`Gonna buy at ${minPrice} and sell at ${prices[maxIndex]}`);
+
+
+
+
 /* To understand divide and conquer, we will first write mergesort */
 
 let arr = [1,3,4,1,22,89,-1,0];
@@ -60,3 +84,7 @@ function mergeSort(a){
 }
 
 mergeSort(arr);
+
+
+
+
