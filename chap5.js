@@ -76,4 +76,8 @@ function every(arr, test){
   return arr.reduce((v,i) => v && test(i))
 }
 
+function every(arr, fn){
+  return !arr.some(v => !fn(v))
+}
+
 
