@@ -277,6 +277,82 @@ Group.prototype[Symbol.iterator] = function(){
 
 
 
+/*
+build a matrix class that can store elements - then build a MatrixIterator to make matrix objects iterable
+
+properties: width, height, get, set
+*/
+
+//2d implementation 
+class Matrix {
+  constructor(width, height, element = (x,y) => undefined){
+    this.m = new Array(height);
+    for(let i = 0; i < this.m.length; i++){
+      this.m[i] = new Array(width);
+      for(let j = 0; j < this.m[i].length; j++){
+        this.m[i][j] = element(j,i);
+      }
+    }
+  }
+}
+
+//1d implementation
+class Matrix {
+  constructor(width, height, element = (x,y) => undefined){
+    this.width = width;
+    this.height = height;
+    this.content = [];
+    for(let i = 0; i < height; i++){
+      for(let j = 0; j < width; j++){
+        this.content.push(element(j,i));
+      }
+    }
+  }
+
+  get(x,y){
+    return this.content[y * this.width + x];
+  }
+
+  set(x, y, value){
+    this.content[this.width * y + x] = value;
+  }
+}
+
+
+class MatrixIterator {
+  constructor(matrix){
+    this.matrix = matrix;
+    this.x = 0;
+    this.y = 0;
+  }
+
+  next(){
+    if(this.y === this.matrix.height){
+      return {
+        value: undefined,
+        done: true
+      }
+    } 
+    let value = {
+      value: this.matrix.get(this.x,this.y),
+      done: false
+    };
+    this.x++;
+    if(this.x === this.matrix.width){
+      this.x = 0;
+      this.y++
+    }
+    return value;
+  }
+}
+
+
+//this is how we added the function returning the object implementing next - and passed the actual matrix to it.
+Matrix.prototype[Symbol.iterator] = function(){
+  return new MatrixIterator(this);
+}
+
+
 
 
 
