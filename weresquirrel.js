@@ -143,8 +143,21 @@ function journalEvents(journal){
       }
     }
   }
-  return allEvents;
+  return allEv;
 }
 
-journalEvents(JOURNAL);
+const allEvents = journalEvents(JOURNAL);
 
+for(let i of allEvents){
+  let correlation = phi(tableFor(i,JOURNAL));
+  if(correlation < -0.1 || correlation > 0.1)
+    console.log('Event: '+ i + ' Correlation with turning squirrel: ' + correlation);
+}
+
+for(let i of JOURNAL){
+  if(i.events.includes('peanuts') && !i.events.includes('brushed teeth'))
+    i.events.push('peanut teeth');
+}
+
+console.log('Is it due to expected - eating peanutes and not brushing teeth');
+console.log(phi(tableFor('peanut teeth', JOURNAL)));
