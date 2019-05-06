@@ -139,3 +139,58 @@ function mailDeliveryRobot(state, memory){
 		memory: nextIndex
 	}
 }
+
+
+/*
+given a source and a destination - 
+find the shortest route - 
+
+keep finding routes till we reach all the places.
+*/
+
+function findAllRoutes(src, dest){
+	let allDistinctPlaces = {[src] : true};
+	let allPlacesCount = Object.keys(roadGraph).length;
+
+	let start = {
+		node: src,
+		branches:[]
+	};
+
+	function createNode(s){
+		return {
+			node: s,
+			branches: []
+		}
+	}
+	
+	function traverse(seed){
+
+		if(seed.node === dest)
+			return false;
+		if(Object.keys(allDistinctPlaces).length === allPlacesCount)
+			return false;
+
+		//traverse and create linked lists
+		let placesFromSeed = roadGraph[seed.node];
+		for (i of placesFromSeed){
+			if(!(i in allDistinctPlaces)){
+				allDistinctPlaces[i] = true;
+				seed.branches.push(createNode(i));
+			}
+
+			seed.branches.forEach(v => {
+				traverse(v);
+			})
+		}
+	}
+
+	traverse(start);
+	console.log(start);
+}
+
+
+
+
+
+
