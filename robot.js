@@ -157,26 +157,32 @@ function findAllRoutes(src, dest){
 		branches:[]
 	};
 
-	function createNode(s){
+	function createNode(s,dest){
+		if(s === dest){
+			return {
+				node: s
+			}
+		}
+			
 		return {
 			node: s,
 			branches: []
 		}
 	}
 	
-	function traverse(seed){
-
+	function traverse(seed) {
 		if(seed.node === dest)
 			return false;
 		if(Object.keys(allDistinctPlaces).length === allPlacesCount)
 			return false;
 
-		//traverse and create linked lists
 		let placesFromSeed = roadGraph[seed.node];
 		for (i of placesFromSeed){
 			if(!(i in allDistinctPlaces)){
 				allDistinctPlaces[i] = true;
-				seed.branches.push(createNode(i));
+				seed.branches.push(createNode(i, dest));
+				if(i == dest)
+					break;
 			}
 
 			seed.branches.forEach(v => {
