@@ -1,23 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Events</title>
 	<style>
+		@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 		.boundary{
 			border:solid 1px red;
 		}
-
 		.bar{
 			background-color: orange;
 			height:40px;
 			width:100px;
 		}
-
 	</style>
 </head>
 <body>
+	<img src='https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2011/dragonfish_association_rahman.jpg' />
 	<p>click me!</p>
 	<button>click me</button>
 
@@ -36,6 +35,7 @@
 
 
 	<div class='bar'></div>
+
 
 	<script>
 		let d = document.querySelector('button');
@@ -92,7 +92,10 @@
 			if(isOver){
 				div.style.width = (e.clientX - dim.left) + 'px';
 			}
+		});
 
+		window.addEventListener('load', (e) => {
+			console.log('finished loading all elements');
 		})
 
 	</script>
