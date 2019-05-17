@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Paint program</title>
+	<style>
+		
+
+		body{
+			background-color: beige;
+			margin:0; padding:0;
+		}
+		.dot{
+			position: absolute;
+			background-color: blue;
+			height:10px;
+			width:10px;	
+		}
+
+	</style>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+		window.addEventListener('mousedown', (e) => {
+			let x = e.pageX;
+			let y = e.pageY;
+			let el = document.createElement('DIV');
+			el.className = 'dot';
+			el.style.top = y + 'px';
+			el.style.left = x + 'px';
+			document.body.appendChild(el);
+		});
+
+	</script>
+</body>
+</html>
