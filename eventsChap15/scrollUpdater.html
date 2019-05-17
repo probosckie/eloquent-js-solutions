@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Update as you scroll</title>
+	<style>
+		.largeHeight{
+			width: 90%;
+			line-height: 50px;
+			margin:17px auto 0 auto;
+			height: calc(100vh + 600px);
+			background-color: blue;
+		}
+
+		body{
+			margin:0; padding: 0;
+			color:beige;
+		}
+
+		.scrollUpdater{
+			height:10px; background-color: orange;
+			position: fixed; top:0;
+			width: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class='scrollUpdater'></div>
+	<div class='largeHeight'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil dicta perferendis veniam harum, vitae eius ipsa repellendus, rem corporis laboriosam voluptates neque optio quia sunt necessitatibus perspiciatis voluptatem earum quo molestias itaque, nostrum sequi in illum! Eius facilis, porro minima deserunt quos accusamus sint voluptatibus fuga officiis adipisci repellat beatae corrupti cupiditate accusantium hic unde mollitia quas, commodi corporis velit ut at praesentium! Voluptatibus laboriosam sunt hic dolor, aperiam sed ratione qui minima cupiditate, quas distinctio eum. Illum doloremque voluptates, quibusdam rem amet sit architecto labore nesciunt atque, dicta delectus laboriosam minima explicabo facere voluptatem quasi eligendi, culpa placeat. Ipsum rerum corrupti eligendi, perspiciatis saepe eveniet dolore ipsa magnam doloribus quam. Adipisci ab asperiores iste obcaecati recusandae nesciunt excepturi numquam corporis, voluptatem sed eveniet sint, eius quia debitis aspernatur est quis voluptates deserunt enim quidem aut maxime ipsa! Nobis eveniet consequatur beatae, quibusdam odit totam dolorem dolor deleniti harum iusto. Quas vitae explicabo, ipsum possimus, tempore debitis nemo dicta labore, dolorem rerum, eligendi odit! Itaque, possimus, assumenda. Quisquam ducimus ea quod totam adipisci possimus. Maiores inventore non nisi odio facere quam reiciendis corrupti! Commodi quae debitis, quas vero! Aut corrupti ipsum cum iusto ducimus excepturi, possimus, minima error recusandae soluta, repellendus libero enim a iste illo. Dignissimos nam accusamus quos aliquid ab dolores inventore dolorum voluptates, ut sed! Maiores quasi ipsam accusantium maxime, hic aliquid vitae nesciunt quis quia, inventore, veniam necessitatibus delectus. Veritatis tenetur perspiciatis molestiae, deserunt praesentium pariatur, odit, odio sequi corporis quam, magnam! Dignissimos officiis autem, voluptates nesciunt eius. Natus rerum, voluptatum, veritatis reprehenderit blanditiis commodi accusantium similique non eveniet. Ab iure saepe, porro illum autem tempora quas, ad inventore repudiandae, dolorum nam tempore omnis architecto, rem voluptas quo vero. Nobis quasi neque aut id, aliquam beatae minus, alias soluta et necessitatibus, porro fuga expedita quisquam eius possimus qui iusto? Officia dolores quam quibusdam unde commodi. Nisi et mollitia totam quasi dignissimos placeat voluptates nostrum vero itaque hic, quo nesciunt officiis excepturi assumenda minus sed voluptatem, perferendis quae praesentium quam earum sapiente quaerat. Iste officiis ullam aliquid sint nesciunt quisquam, eos doloremque harum fugit beatae aspernatur reprehenderit maiores at, hic dolorem quaerat molestias. Magni nobis, omnis nulla sint ex hic! Expedita porro at ab ipsum architecto vero dolores culpa odit, adipisci, similique tenetur rerum, accusamus maiores aperiam! Laudantium at tempora deserunt mollitia tempore maiores ex enim repudiandae similique numquam impedit, omnis voluptatum, soluta et in rerum cumque. Corrupti saepe architecto, laudantium atque libero neque quasi expedita ab culpa, fuga dolores eaque minima ratione quae numquam eligendi amet cumque labore, perferendis nulla adipisci. Veritatis rem quidem adipisci ratione ipsum, aspernatur commodi animi aperiam consectetur facere delectus, corporis? Modi iure fuga illo aut et fugiat, quam accusamus, voluptatum sequi consequuntur error exercitationem ipsa consectetur eveniet illum, tempore soluta! Optio neque molestias perferendis laborum eum reprehenderit deserunt facilis officia quis voluptatem quibusdam enim vero excepturi rem eveniet sit obcaecati minus cum nesciunt, quae corporis quas a sapiente. Architecto dignissimos iusto minus soluta, qui aliquam. Porro similique itaque ad repellat ab!</div>
+
+	<script>
+		window.addEventListener('scroll', function(e){
+				let max = document.body.scrollHeight - innerHeight;
+				let current = pageYOffset;
+				let width = (current / max) * 100;
+				let element = document.querySelector('.scrollUpdater');
+				element.style.width = width + '%';
+		})
+	</script>
+</body>
+
+
+
+</html>
