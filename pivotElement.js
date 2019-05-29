@@ -39,5 +39,5 @@ var pivotIndex = function(nums) {
     
     if(pivotFound)
         return pivotIndex;
-    return -1;
+    return -1; 
 };
